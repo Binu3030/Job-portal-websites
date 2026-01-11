@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Briefcase, Menu, X, ChevronDown, Building2, Users, FileText, Bell } from "lucide-react"
+import { SelectDemo } from "./ui/select"
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -20,6 +21,14 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-6 md:flex">
+
+
+
+<SelectDemo/>
+
+
+
+          
           <Link
             href="/jobs"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -99,6 +108,7 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="border-t border-border md:hidden">
           <div className="space-y-1 px-4 py-4">
+
             <Link
               href="/jobs"
               className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent"
