@@ -1,14 +1,4 @@
-import Navbar from '@/components/ui/button'
-import React from 'react'
-
-const AdminPage = () => {
-  return (
-    <div>Admin Dashboard
-     
-<Navbar/>
-
-    </div>
-  )
+export default function AdminPage() {
+  // Admin dashboard intentionally left minimal — content removed per request
+  return <div />
 }
-
-export default AdminPage

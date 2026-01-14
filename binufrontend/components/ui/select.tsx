@@ -179,7 +179,6 @@ export function SelectDemo() {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Home</SelectLabel>
-          <SelectItem value="admin">Admin</SelectItem>
           <SelectItem value="recruiter">Recruiter</SelectItem>
           <SelectItem value="seeker">Seeker</SelectItem>
         </SelectGroup>

@@ -1,10 +1,24 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Briefcase, Menu, X, ChevronDown, Building2, Users, FileText, Bell } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem
+} from "@/components/ui/dropdown-menu"
+import {
+  Briefcase,
+  Menu,
+  X,
+  ChevronDown,
+  Building2,
+  Users,
+  FileText,
+  Bell
+} from "lucide-react"
 import { SelectDemo } from "./ui/select"
 
 export function Navbar() {
@@ -13,50 +27,45 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Briefcase className="h-8 w-8 text-primary" />
           <span className="text-xl font-bold text-foreground">JobPortal</span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-6 md:flex">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6">
+          <SelectDemo />
 
-
-
-<SelectDemo/>
-
-
-
-          
           <Link
             href="/jobs"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
             Find Jobs
           </Link>
 
+          {/* For Employers Dropdown */}
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground">
               For Employers <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center">
               <DropdownMenuItem asChild>
                 <Link href="/post-job" className="flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  Post a Job
+                  <FileText className="h-4 w-4" /> Post a Job
                 </Link>
               </DropdownMenuItem>
+
               <DropdownMenuItem asChild>
                 <Link href="/candidates" className="flex items-center gap-2">
-                  <Users className="h-4 w-4" />
-                  Browse Candidates
+                  <Users className="h-4 w-4" /> Browse Candidates
                 </Link>
               </DropdownMenuItem>
+
               <DropdownMenuItem asChild>
                 <Link href="/pricing" className="flex items-center gap-2">
-                  <Building2 className="h-4 w-4" />
-                  Pricing Plans
+                  <Building2 className="h-4 w-4" /> Pricing Plans
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -64,32 +73,34 @@ export function Navbar() {
 
           <Link
             href="/companies"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
             Companies
           </Link>
 
           <Link
             href="/resources"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+            className="text-sm font-medium text-muted-foreground hover:text-foreground"
           >
             Resources
           </Link>
         </div>
 
         {/* Desktop Actions */}
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden md:flex items-center gap-3">
           <Button variant="ghost" size="icon" className="relative">
             <Bell className="h-5 w-5" />
             <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground">
               3
             </span>
           </Button>
+
           <Button variant="ghost" asChild>
-            <Link href="/signup">Sign In</Link>
+            <Link href="/login">Sign In</Link>
           </Button>
+
           <Button asChild>
-            <Link href="/login">Get Started</Link>
+            <Link href="/register">Get Started</Link>
           </Button>
         </div>
 
@@ -107,51 +118,63 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="border-t border-border md:hidden">
-          <div className="space-y-1 px-4 py-4">
-
+          <div className="flex flex-wrap gap-3 px-4 py-4">
             <Link
               href="/jobs"
-              className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent"
+              className="flex items-center gap-1 px-3 py-2 rounded-md bg-accent text-sm font-medium hover:bg-accent/80"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Find Jobs
+              <Briefcase className="h-5 w-5" /> Find Jobs
             </Link>
+
             <Link
               href="/post-job"
-              className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent"
+              className="flex items-center gap-1 px-3 py-2 rounded-md bg-accent text-sm font-medium hover:bg-accent/80"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Post a Job
+              <FileText className="h-5 w-5" /> Post a Job
             </Link>
+
             <Link
               href="/candidates"
-              className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent"
+              className="flex items-center gap-1 px-3 py-2 rounded-md bg-accent text-sm font-medium hover:bg-accent/80"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Browse Candidates
+              <Users className="h-5 w-5" /> Browse Candidates
             </Link>
+
+            <Link
+              href="/pricing"
+              className="flex items-center gap-1 px-3 py-2 rounded-md bg-accent text-sm font-medium hover:bg-accent/80"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Building2 className="h-5 w-5" /> Pricing Plans
+            </Link>
+
             <Link
               href="/companies"
-              className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent"
+              className="flex items-center gap-1 px-3 py-2 rounded-md bg-accent text-sm font-medium hover:bg-accent/80"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Companies
+              <Building2 className="h-5 w-5" /> Companies
             </Link>
+
             <Link
               href="/resources"
-              className="block rounded-md px-3 py-2 text-base font-medium text-foreground hover:bg-accent"
+              className="flex items-center gap-1 px-3 py-2 rounded-md bg-accent text-sm font-medium hover:bg-accent/80"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Resources
+              <FileText className="h-5 w-5" /> Resources
             </Link>
-            <div className="mt-4 flex flex-col gap-2 border-t border-border pt-4">
-              <Button variant="outline" asChild className="w-full bg-transparent">
-                <Link href="/login">Sign In</Link>
-              </Button>
-              <Button asChild className="w-full">
-                <Link href="/register">Get Started</Link>
-              </Button>
-            </div>
+
+            {/* Mobile Sign In / Get Started */}
+            <Button variant="outline" asChild className="flex-1">
+              <Link href="/login">Sign In</Link>
+            </Button>
+
+            <Button asChild className="flex-1">
+              <Link href="/register">Get Started</Link>
+            </Button>
           </div>
         </div>
       )}
