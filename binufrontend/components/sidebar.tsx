@@ -2,8 +2,9 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { cn } from "@/lib/normalize"
+import { getJobs } from "@/lib/jobs"
 import { Search, Briefcase, Building2, BookmarkCheck, LayoutDashboard } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 const mainNavItems = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },

@@ -1,14 +1,9 @@
-import React from "react";
-import { JobsProvider } from "@/contexts/JobsContext";
+import './globals.css';
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
-      <body>
-        <JobsProvider>
-          {children}
-        </JobsProvider>
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }

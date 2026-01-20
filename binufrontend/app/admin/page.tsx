@@ -1,4 +1,13 @@
-export default function AdminPage() {
-  // Admin dashboard intentionally left minimal — content removed per request
-  return <div />
+'use client' 
+
+import React from 'react'
+
+const AdminPage = () => {
+  return (
+    <div>
+      <h1>Admin Dashboard</h1>
+    </div>
+  )
 }
+
+export default AdminPage
